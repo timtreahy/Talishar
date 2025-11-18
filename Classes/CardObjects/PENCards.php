@@ -181,6 +181,68 @@ class magmatic_carapace extends Card
   }
 }
 
+class frosthaven_sheath_red extends Card
+{
+  function __construct($controller)
+  {
+    $this->cardID = "frosthaven_sheath_red";
+    $this->controller = $controller;
+  }
+  function SpecialType($from = '', $additionalCosts = '-')
+  {
+    return "DR";
+  }
+
+  function PlayAbility($from, $resourcesPaid, $target = '-', $additionalCosts = '-', $uniqueID = '-1', $layerIndex = -1)
+  {
+    global $defPlayer, $mainPlayer;
+    if (SearchCardList($additionalCosts, $this->controller, talent: "ICE") != "")
+      PlayAura("frostbite", $mainPlayer, effectController: $defPlayer);
+  }
+}
+
+class leaven_sheath_red extends Card
+{
+  function __construct($controller)
+  {
+    $this->cardID = "leaven_sheath_red";
+    $this->controller = $controller;
+  }
+
+  function SpecialType($from = '', $additionalCosts = '-')
+  {
+    return "DR";
+  }
+
+  function PlayAbility($from, $resourcesPaid, $target = '-', $additionalCosts = '-', $uniqueID = '-1', $layerIndex = -1)
+  {
+    global $defPlayer;
+    if (SearchCardList($additionalCosts, $this->controller, talent: "EARTH") != "")
+      PlayAura("embodiment_of_earth", $defPlayer);
+  }
+}
+
+class stormwind_sheath_red extends Card
+{
+  function __construct($controller)
+  {
+    $this->cardID = "stormwind_sheath_red";
+    $this->controller = $controller;
+  }
+
+  function SpecialType($from = '', $additionalCosts = '-')
+  {
+    return "DR";
+  }
+
+  function PlayAbility($from, $resourcesPaid, $target = '-', $additionalCosts = '-', $uniqueID = '-1', $layerIndex = -1)
+  {
+    global $defPlayer;
+    if (SearchCardList($additionalCosts, $this->controller, talent: "LIGHTNING") != "")
+      PlayAura("embodiment_of_lightning", $defPlayer);
+  }
+}
+
 class trench_of_watery_depths extends Card
 {
   function __construct($controller)
